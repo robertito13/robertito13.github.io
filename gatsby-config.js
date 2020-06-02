@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`
-    },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    title: `rvaccaro.com.ar`,
+    author: `Roberto Vaccaro`,
+    description: `being digital!`,
+    siteUrl: `https://rvaccaro.com.ar/`,
     social: {
-      twitter: `kylemathews`
+      email: `roberto.vaccaro@gmail.com`,
+      twitter: `robertitov13`,
+      github: `robertito13`,
+      stackoverflow: `4467281`,
+      codingame: `e4636f05a4fc4d7afc87b2f8848e1a4e1703161`
     }
   },
   plugins: [
@@ -60,8 +61,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `rvaccaro.com.ar`,
+        short_name: `rvaccaro`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

@@ -1,41 +1,49 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
+      socialIcons: allFile(filter: {sourceInstanceName: {eq: "assets"}, extension: {eq: "svg"}}) {
+        edges {
+          node {
+            base
+            publicURL
           }
         }
       }
       site {
         siteMetadata {
-          author {
-            name
-            summary
-          }
+          author
           social {
             twitter
+            github
+            stackoverflow
+            codingame
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const socialIcons = {};
+  data.socialIcons.edges.forEach(edge => {
+    let name = edge.node.base;
+    name = name.substring(0, name.lastIndexOf('-'));
+
+    socialIcons[name] = edge.node.publicURL;
+  });
+
+  const social = data.site.siteMetadata.social
+  const socialIconStyle = {
+    marginRight: rhythm(1 / 2),
+    marginBottom: 0,
+    width: 48,
+    borderRadius: `100%`,
+  };
+
   return (
     <div
       style={{
@@ -43,24 +51,42 @@ const Bio = () => {
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+          <img
+            src={socialIcons.twitter}
+            alt={`Twitter`}
+            style={socialIconStyle}
+            imgStyle={{
+              borderRadius: `50%`,
+            }} />
+        </a>
+        <a href={`https://github.com/${social.github}`} target="_blank">
+          <img
+            src={socialIcons.github}
+            alt={`GitHub`}
+            style={socialIconStyle}
+            imgStyle={{
+              borderRadius: `50%`,
+            }} />
+        </a>
+        <a href={`https://stackoverflow.com/users/${social.stackoverflow}`} target="_blank">
+          <img
+            src={socialIcons.stackoverflow}
+            alt={`StackOverflow`}
+            style={socialIconStyle}
+            imgStyle={{
+              borderRadius: `50%`,
+            }} />
+        </a>
+        <a href={`https://www.codingame.com/profile/${social.codingame}`} target="_blank">
+          <img
+            src={socialIcons.codingame}
+            alt={`CodinGame`}
+            style={socialIconStyle}
+            imgStyle={{
+              borderRadius: `50%`,
+            }} />
         </a>
       </p>
     </div>
