@@ -1,11 +1,14 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import socialIconStyle from './bio.module.css';
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      socialIcons: allFile(filter: {sourceInstanceName: {eq: "assets"}, extension: {eq: "svg"}}) {
+      socialIcons: allFile(filter: {
+        sourceInstanceName: {eq: "assets"},
+        extension: {eq: "svg"}
+        }) {
         edges {
           node {
             base
@@ -25,25 +28,20 @@ const Bio = () => {
         }
       }
     }
-  `)
+  `);
 
   const socialIcons = {};
-  data.socialIcons.edges.forEach(edge => {
+  data.socialIcons.edges.forEach((edge) => {
     let name = edge.node.base;
     name = name.substring(0, name.lastIndexOf('-'));
 
     socialIcons[name] = edge.node.publicURL;
   });
 
-  const social = data.site.siteMetadata.social
+  const social = data.site.siteMetadata.social;
 
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: `2.5em`,
-      }}
-    >
+    <div className={socialIconStyle.container}>
       <p>
         <a href={`https://twitter.com/${social.twitter}`} target="_blank" rel="noreferrer">
           <img
@@ -71,7 +69,7 @@ const Bio = () => {
         </a>
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;

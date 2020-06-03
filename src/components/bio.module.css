@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    margin-bottom: 2.5em;
+}
+
 .icon {
     margin-right: 1em;
     margin-bottom: 0;
