@@ -1,7 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
-import { rhythm } from "../utils/typography"
+import socialIconStyle from './bio.module.css';
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -37,56 +36,38 @@ const Bio = () => {
   });
 
   const social = data.site.siteMetadata.social
-  const socialIconStyle = {
-    marginRight: rhythm(1 / 2),
-    marginBottom: 0,
-    width: 48,
-    borderRadius: `100%`,
-  };
 
   return (
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: `2.5em`,
       }}
     >
       <p>
-        <a href={`https://twitter.com/${social.twitter}`} target="_blank">
+        <a href={`https://twitter.com/${social.twitter}`} target="_blank" rel="noreferrer">
           <img
             src={socialIcons.twitter}
             alt={`Twitter`}
-            style={socialIconStyle}
-            imgStyle={{
-              borderRadius: `50%`,
-            }} />
+            className={socialIconStyle.icon} />
         </a>
-        <a href={`https://github.com/${social.github}`} target="_blank">
+        <a href={`https://github.com/${social.github}`} target="_blank" rel="noreferrer">
           <img
             src={socialIcons.github}
             alt={`GitHub`}
-            style={socialIconStyle}
-            imgStyle={{
-              borderRadius: `50%`,
-            }} />
+            className={socialIconStyle.icon} />
         </a>
-        <a href={`https://stackoverflow.com/users/${social.stackoverflow}`} target="_blank">
+        <a href={`https://stackoverflow.com/users/${social.stackoverflow}`} target="_blank" rel="noreferrer">
           <img
             src={socialIcons.stackoverflow}
             alt={`StackOverflow`}
-            style={socialIconStyle}
-            imgStyle={{
-              borderRadius: `50%`,
-            }} />
+            className={socialIconStyle.icon} />
         </a>
-        <a href={`https://www.codingame.com/profile/${social.codingame}`} target="_blank">
+        <a href={`https://www.codingame.com/profile/${social.codingame}`} target="_blank" rel="noreferrer">
           <img
             src={socialIcons.codingame}
             alt={`CodinGame`}
-            style={socialIconStyle}
-            imgStyle={{
-              borderRadius: `50%`,
-            }} />
+            className={socialIconStyle.icon} />
         </a>
       </p>
     </div>
