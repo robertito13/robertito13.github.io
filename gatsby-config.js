@@ -57,7 +57,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       }
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -66,8 +65,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`
+        display: `minimal-ui`
       }
     },
     `gatsby-plugin-react-helmet`,
