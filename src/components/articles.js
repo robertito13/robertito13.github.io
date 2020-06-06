@@ -25,7 +25,7 @@ const Articles = () => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <React.Fragment>
+    <div className="container">
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
@@ -42,7 +42,7 @@ const Articles = () => {
           </article>
         );
       })}
-    </React.Fragment>
+    </div>
   );
 };
 
