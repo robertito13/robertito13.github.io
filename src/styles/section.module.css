@@ -1,0 +1,14 @@
+.section {
+  display: flex;
+  flex-direction: row;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section header {
+  flex: 1;
+}
+
+.section article {
+  flex: 1;
+}
