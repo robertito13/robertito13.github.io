@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "gatsby": "^2.23.1",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -28,6 +27,9 @@
     "eslint": "^7.2.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.20.0",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
+    "gatsby-plugin-sass": "^2.3.3",
+    "node-sass": "^4.14.1",
     "typescript": "^3.9.5"
   }
 }

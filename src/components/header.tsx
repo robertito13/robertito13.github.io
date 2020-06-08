@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/header.module.css';
+import styles from '../styles/header.module.scss';
 
 class Header extends React.Component {
   render(): JSX.Element {

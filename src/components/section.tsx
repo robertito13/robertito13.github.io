@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/section.module.css';
+import styles from '../styles/section.module.scss';
 
 interface SectionProps {
   title: React.ReactNode;
