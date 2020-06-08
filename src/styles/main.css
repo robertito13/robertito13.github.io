@@ -1,4 +1,6 @@
 body {
   margin: 0;
-  background: linear-gradient(90deg, pink 50%, cyan 50%);
+  background: linear-gradient(90deg, #725B75 50%, #322030 50%);
+  color: #FCFDEB;
+  font-family: 'Work Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

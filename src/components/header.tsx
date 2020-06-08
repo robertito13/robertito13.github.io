@@ -6,7 +6,9 @@ class Header extends React.Component {
   render(): JSX.Element {
     return (
       <header className={styles.header}>
-        <div>rvaccaro.com.ar</div>
+        <div className={styles.container}>
+          rvaccaro.com.ar
+        </div>
       </header>
     );
   }
