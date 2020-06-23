@@ -15,6 +15,7 @@ const Content = () => {
             excerpt
             frontmatter {
               date(formatString: "DD-MM-YYYY")
+              rawDate: date(formatString: "YYYY-MM-DD")
               title
               tags
             }
@@ -36,7 +37,9 @@ const Content = () => {
 
         return (
           <article key={node.id} className={styles.article}>
-            [ {node.frontmatter.date} ] <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            [ <time dateTime={node.frontmatter.rawDate}>{node.frontmatter.date}</time> ]
+            &nbsp;
+            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
             { tags ? tags : `` }
           </article>
         );

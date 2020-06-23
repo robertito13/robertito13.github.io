@@ -6,6 +6,10 @@
   padding: 20px 0 20px 20px;
 
   line-height: 1.25em;
+
+  a {
+    color: #111;
+  }
 }
 
 .tag {
@@ -14,6 +18,7 @@
   padding: 0 .5em;
   margin-left: .5em;
   line-height: 1em;
+  font-style: italic;
 }
 
 .article {
