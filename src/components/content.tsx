@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import styles from '../styles/content.module.scss';
 
@@ -9,6 +9,9 @@ const Content = () => {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           node {
+            fields {
+              slug
+            }
             excerpt
             frontmatter {
               date(formatString: "DD-MM-YYYY")
@@ -27,12 +30,14 @@ const Content = () => {
   return (
     <div className={styles.content}>
       {posts.map(({ node }) => {
-        const tags = (node.frontmatter.tags || []).join(`, `);
+        const tags = (node.frontmatter.tags || []).map((tag) => (
+          <div className={styles.tag} key={tag}>{tag}</div>
+        ));
 
         return (
-          <article key={node.id}>
-            [ {node.frontmatter.date} ] <strong>{node.frontmatter.title}</strong>
-            { tags ? ` (${tags})` : `` }
+          <article key={node.id} className={styles.article}>
+            [ {node.frontmatter.date} ] <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            { tags ? tags : `` }
           </article>
         );
       })}
