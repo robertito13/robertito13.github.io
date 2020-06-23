@@ -1,6 +1,7 @@
 ---
 title: "TDD Wordpress Theme"
 date: "2018-12-02"
+tags: ["wordpress"]
 ---
 
 Tanto al comenzar a desarrollar un tema desde cero como cuando ya adquirió mayor complejidad tenemos que hacer una serie de chequeos de forma manual para asegurarnos que no nos olvidamos de incluir ninguna funcionalidad o no quedó código muerto.

@@ -1,18 +1,43 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import styles from '../styles/content.module.scss';
 
-class Content extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div className={styles.content}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum,
-        sunt debitis labore iusto provident inventore quisquam, totam, ipsa
-        veniam omnis perferendis obcaecati illo dolores vero modi tempora
-        dicta repellendus corporis.
-      </div>
-    );
-  }
-}
+const Content = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            excerpt
+            frontmatter {
+              date(formatString: "DD-MM-YYYY")
+              title
+              tags
+            }
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const posts = data.allMarkdownRemark.edges;
+
+  return (
+    <div className={styles.content}>
+      {posts.map(({ node }) => {
+        const tags = (node.frontmatter.tags || []).join(`, `);
+
+        return (
+          <article key={node.id}>
+            [ {node.frontmatter.date} ] <strong>{node.frontmatter.title}</strong>
+            { tags ? ` (${tags})` : `` }
+          </article>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Content;
