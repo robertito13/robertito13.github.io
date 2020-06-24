@@ -1,9 +1,6 @@
 .sidebar {
   background-color: #5A86AD;
-  border-right: solid 10px #FDAA47;
-
-  min-height: 100vh;
-  width: 320px;
+  border-bottom: solid 10px #FDAA47;
 
   display: flex;
   flex-direction: column;
@@ -19,6 +16,13 @@
 
   a:hover {
     color: #FDAA47;
+  }
+
+  @media (min-width: 768px) {
+    border-bottom: none;;
+    border-right: solid 10px #FDAA47;
+    width: 320px;
+    min-height: 100vh;
   }
 }
 
