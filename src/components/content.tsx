@@ -38,7 +38,6 @@ const Content = () => {
         return (
           <article key={node.id} className={styles.article}>
             [ <time dateTime={node.frontmatter.rawDate}>{node.frontmatter.date}</time> ]
-            &nbsp;
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
             { tags ? tags : `` }
           </article>
