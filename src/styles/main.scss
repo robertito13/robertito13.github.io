@@ -47,7 +47,12 @@ a:hover {
 } 
 
 pre[class*="language-"] {
+  overflow: visible;
   padding: 0;
+
+  code {
+    padding-right: 1em;
+  }
 }
 
 pre[class*="language-"].line-numbers {
