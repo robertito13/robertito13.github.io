@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 .sidebar {
   background-color: #5A86AD;
   border-bottom: solid 10px #FDAA47;
@@ -14,11 +16,15 @@
     font-weight: bold;
   }
 
-  @media (min-width: 768px) {
-    border-bottom: none;;
+  @include for-tablet-up {
+    border-bottom: none;
     border-right: solid 10px #FDAA47;
-    width: 320px;
+    width: 300px;
     min-height: 100vh;
+  }
+
+  @include for-desktop {
+    width: 450px;
   }
 }
 

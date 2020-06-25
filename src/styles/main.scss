@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import './mixins.scss';
 
 body {
   margin: 0;
@@ -8,7 +9,7 @@ body {
   font-size: 20px;
   color: #000;
 
-  @media (min-width: 768px) {
+  @include for-tablet-up {
     background: linear-gradient(90deg, #5A86AD 50%, #C85A53 50%);
   }
 }
@@ -27,8 +28,12 @@ a:hover {
   margin: auto;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @include for-tablet-up {
     flex-direction: row;
-    max-width: 960px;
+    max-width: 900px;
+  }
+
+  @include for-desktop {
+    max-width: 1200px;
   }
 }

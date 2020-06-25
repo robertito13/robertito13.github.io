@@ -1,3 +1,5 @@
+@import './mixins.scss';
+
 .content {
   background-color: #C85A53;
 
@@ -5,9 +7,13 @@
 
   line-height: 1.25em;
 
-  @media (min-width: 768px) {
+  @include for-tablet-up {
     min-height: 100vh;
-    width: 640px;
+    width: 600px;
+  }
+
+  @include for-desktop {
+    width: 900px;
   }
 }
 
@@ -21,5 +27,9 @@
 }
 
 .article {
-  margin-bottom: .5em;
+  margin-bottom: .75em;
+
+  time {
+    font-weight: bold;
+  }
 }
