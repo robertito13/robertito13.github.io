@@ -37,3 +37,19 @@ a:hover {
     max-width: 1200px;
   }
 }
+
+.gatsby-highlight {
+  background-color: #2d2d2d;
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+} 
+
+pre[class*="language-"] {
+  padding: 0;
+}
+
+pre[class*="language-"].line-numbers {
+  padding-left: 2em;
+}

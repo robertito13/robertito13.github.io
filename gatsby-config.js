@@ -19,6 +19,18 @@ module.exports = {
             },
           },
           `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: `language-`,
+              showLineNumbers: false,
+              prompt: {
+                user: `root`,
+                host: `localhost`,
+                global: false,
+              },
+            },
+          },
         ],
       },
     },
