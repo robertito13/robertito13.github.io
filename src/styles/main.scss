@@ -11,6 +11,15 @@ body {
   }
 }
 
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #FDAA47;
+}
+
 .container {
   display: flex;
   margin: auto;
