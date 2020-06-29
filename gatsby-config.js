@@ -43,5 +43,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
   ],
+  siteMetadata: {
+    title: 'rvaccaro',
+    titleTemplate: '%s · rvaccaro',
+    description: 'rvaccaro',
+    url: 'https://robertito13.github.io',
+    twitterUsername: 'robertitov13',
+  },
 };

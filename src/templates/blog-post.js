@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Sidebar from '../components/sidebar';
+import SEO from '../components/seo';
 
 import styles from '../styles/content.module.scss';
 
@@ -10,6 +11,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   return (
     <div className="container">
+      <SEO title={post.frontmatter.title} />
       <Sidebar />
       <article className={styles.content}>
         <header>
