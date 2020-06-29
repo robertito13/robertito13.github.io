@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
   render(): JSX.Element {
     return (
       <aside className={styles.sidebar}>
-        <header><Link to='/'>rvaccaro.com.ar</Link></header>
+        <header><Link to='/'>rvaccaro</Link></header>
         <section className={styles.social}>
           <SocialIcon type="CodePen" id="rvaccaro" />
           <SocialIcon type="FreeCodeCamp" id="robertito13" />
