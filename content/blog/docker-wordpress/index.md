@@ -6,7 +6,7 @@ date: "2019-05-05"
 Siguiendo con el tema de Docker, uno de mis usos preferidos es utilizarlo para crear entornos locales para testear WordPress. Si bien hay una [imagen](https://hub.docker.com/_/wordpress) oficial de WordPress para Docker su configuración out-of-the-box necesita algunos ajustes para sernos de utilidad.
 
 Primero, el archivo _docker-compose.yml_:
-
+```yaml
 version: "3"
 
 services:
@@ -49,7 +49,7 @@ services:
       - 8000:8080
     environment:
       ADMINER\_DEFAULT\_SERVER: mysql
-
+```
 Como vemos, trabajo con 3 images: _mysql_, _wordpress_ y _adminer_.
 
 En la primera, _mysql_, creo un volumen que apunta a **./wordpress/database** en el host y a **/var/lib/mysql** en el container lo que me permite persistir la información de la base de datos mediante el sencillo proceso de almacenar los archivos de datos de MySQL en el host. Es importante que especifiquemos la versión de MySQL en vez de usar latest, para evitar que los datos se pierdan al actualizarse el servidor.
@@ -71,6 +71,7 @@ docker-compose exec wordpress chown www-data:www-data /var/www/html/wp-content /
 
 Por último dejo el archivo .htaccess y php.ini que utilizo con las características antes comentadas:
 
+```apacheconf
 <IfModule mod\_rewrite.c>
   RewriteEngine on
   RewriteBase /
@@ -78,9 +79,12 @@ Por último dejo el archivo .htaccess y php.ini que utilizo con las característ
   RewriteCond %{HTTP\_HOST} ^localhost:8080$
   RewriteRule ^wp-content/uploads/(.\*)$ https://server/wp-content/uploads/$1 \[NC,L\]
 </IfModule>
+```
 
+```ini
 file\_uploads = On
 memory\_limit = 64M
 upload\_max\_filesize = 64M
 post\_max\_size = 64M
 max\_execution\_time = 600
+```
