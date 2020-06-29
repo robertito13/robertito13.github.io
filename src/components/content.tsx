@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
+import ExternalLink from './external-link';
+
 import styles from '../styles/content.module.scss';
 
 const Content = () => {
@@ -11,12 +13,14 @@ const Content = () => {
           node {
             fields {
               slug
+              source
             }
             excerpt
             frontmatter {
               date(formatString: "DD-MM-YYYY")
               rawDate: date(formatString: "YYYY-MM-DD")
               title
+              link
               tags
             }
             id
@@ -40,7 +44,11 @@ const Content = () => {
             <div className={styles.date}>
               [ <time dateTime={node.frontmatter.rawDate}>{node.frontmatter.date}</time> ]
             </div>
-            <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            {
+            node.fields.source === `links` ?
+              <ExternalLink to={node.frontmatter.link}>{node.frontmatter.title}</ExternalLink>:
+              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+            }
             { tags ? tags : `` }
           </article>
         );
