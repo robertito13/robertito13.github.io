@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
+
 import SocialIcon from './social-icon';
 
 import styles from '../styles/sidebar.module.scss';
@@ -7,7 +9,7 @@ class Sidebar extends React.Component {
   render(): JSX.Element {
     return (
       <aside className={styles.sidebar}>
-        <header>rvaccaro.com.ar</header>
+        <header><Link to='/'>rvaccaro.com.ar</Link></header>
         <section className={styles.social}>
           <SocialIcon type="CodePen" id="rvaccaro" />
           <SocialIcon type="FreeCodeCamp" id="robertito13" />
