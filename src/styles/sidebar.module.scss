@@ -17,6 +17,7 @@
   }
 
   @include for-tablet-up {
+    position: fixed;
     padding: 20px 20px 20px 0;
     border-bottom: none;
     border-right: solid 10px #FDAA47;
