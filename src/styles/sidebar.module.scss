@@ -37,3 +37,19 @@
 .social {
   font-size: 1.25em;
 }
+
+.filter-button {
+  background: transparent;
+  border: solid 2px;
+  border-radius: 0;
+  margin-right: 5px;
+  padding: 5px 20px;
+  
+  &.active {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

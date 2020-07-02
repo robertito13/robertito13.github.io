@@ -4,7 +4,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const blogPost = path.resolve(`./src/templates/post.js`);
   const result = await graphql(`
       {
         allMarkdownRemark(
@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges.filter((post) => post.node.fields.source === 'blog');
+  const posts = result.data.allMarkdownRemark.edges.filter((post) => post.node.fields.source === 'posts');
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -60,7 +60,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: fileNode.sourceInstanceName,
     });
 
-    const slugValue = (fileNode.sourceInstanceName == `blog`) ? createFilePath({ node, getNode }) : null;
+    const slugValue = (fileNode.sourceInstanceName == `posts`) ? createFilePath({ node, getNode }) : null;
     createNodeField({
       node,
       name: `slug`,
