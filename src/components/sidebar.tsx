@@ -55,9 +55,18 @@ class Sidebar extends React.Component<OwnProps, OwnState> {
           <SocialIcon type="Twitter" id="robertitov13" />
         </section>
         <section className={styles.categories}>
-          <button className={cx({ filterButton: true, active: this.state.filterSelected === `none` })} onClick={filterClear}>Todos</button>
-          <button className={cx({ filterButton: true, active: this.state.filterSelected === `links` })} onClick={filterLinks}>Enlaces</button>
-          <button className={cx({ filterButton: true, active: this.state.filterSelected === `posts` })} onClick={filterPosts}>Posts</button>
+          <button className={cx({
+            filterButton: true,
+            active: this.state.filterSelected === `none`,
+          })} onClick={filterClear}>Todos</button>
+          <button className={cx({
+            filterButton: true,
+            active: this.state.filterSelected === `links`,
+          })} onClick={filterLinks}>Enlaces</button>
+          <button className={cx({
+            filterButton: true,
+            active: this.state.filterSelected === `posts`,
+          })} onClick={filterPosts}>Posts</button>
         </section>
         <section className={styles.last}>
 
