@@ -4,16 +4,19 @@ date: "2020-07-03"
 ---
 
 ## Introducción
-¿Qué es JWT? ¿Qué NO es JWT?
-Diferencia autenticación y autorización
+JWT es un formato estandarizado para representar claims, información sobre identidad o privilegios, con el objetivo de facilitar el intercambio mediante canales con limitantes al tamaño como son las HTTP Authorization headers, las URI query parameters o los POST parameters.
+
+La información se representa mediante objetos JSON, opcionalmente firmados(JWS) o encriptados(JWE), y se codifica mediante el standard base64Url.
+
+JWT se planteó inicialmente como alternativa a SAML buscando reducir la verbosidad y complejidad asociadas a este por estar basado en XML y SOAP.
 
 ## Estructura
 - base64UrlEncode vs base64
 
 ## Casos de Uso
-- Autorización
-- Intercambio de información entre servicios
-- Autenticación
+Al igual que otros sistemas de autorización basados en tokens, la implementación de JWT en una aplicación, permite que la misma sea stateless. Al ser el cliente quien envía, adjunta con la petición, información sobre su identidad y los privilegios que tiene no es necesario que se lleve un control de sesiones desde el servidor.
+
+Esto último lleva a que muchas implementaciones lo usen como una suerte de client based sessions, funcionalidad que excede el scope del standard y que trae aparejados nuevos problemas.
 
 ## Pros
 - Stateless
