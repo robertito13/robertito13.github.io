@@ -34,6 +34,11 @@ class Sidebar extends React.Component<OwnProps, OwnState> {
       this.setState({ filterSelected: `posts` });
     };
 
+    const filterCerts = () => {
+      this.props.filterFn(`type=certificates`);
+      this.setState({ filterSelected: `certificates` });
+    };
+
     const filterClear = () => {
       this.props.filterFn(``);
       this.setState({ filterSelected: `none` });
@@ -67,6 +72,10 @@ class Sidebar extends React.Component<OwnProps, OwnState> {
             filterButton: true,
             active: this.state.filterSelected === `posts`,
           })} onClick={filterPosts}>Posts</button>
+          <button className={cx({
+            filterButton: true,
+            active: this.state.filterSelected === `certificates`,
+          })} onClick={filterCerts}>Certificados</button>
         </section>
         <section className={styles.last}>
 

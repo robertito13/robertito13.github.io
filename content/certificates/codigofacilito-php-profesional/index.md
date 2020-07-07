@@ -1,6 +1,10 @@
 ---
 title: "Curso profesional de PHP"
 date: "2020-07-07"
-link: "https://codigofacilito.com/usuarios/robertovaccaro"
-certificate: "certificado.pdf"
+
+issuer: "códigofacilito"
+issuer_url: "https://codigofacilito.com/"
+
+cert: "certificate.pdf"
+cert_url: "https://codigofacilito.com/usuarios/robertovaccaro"
 ---
