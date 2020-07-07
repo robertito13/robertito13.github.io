@@ -26,7 +26,8 @@ const Content = ({ posts }: OwnProps) : JSX.Element => {
             link = <ExternalLink to={node.frontmatter.link}>{node.frontmatter.title}</ExternalLink>;
             break;
           case `certificates`:
-            link = <Certificate to={node.fields.slug}>{node.frontmatter.title}</Certificate>;
+            link = <Certificate to={node.fields.slug}>
+              {node.frontmatter.title} [{node.frontmatter.issuer}]</Certificate>;
             break;
           default:
             link = <Link to={node.fields.slug}>{node.frontmatter.title}</Link>;

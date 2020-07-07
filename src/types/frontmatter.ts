@@ -4,4 +4,10 @@ export interface Frontmatter {
   rawDate: string;
   tags: string[];
   link: string;
+
+  cert?: any;
+  cert_url?: string;
+
+  issuer?: string;
+  issuer_url?: string;
 }
