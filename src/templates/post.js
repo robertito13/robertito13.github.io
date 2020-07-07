@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/sidebar-stripped';
 import SEO from '../components/seo';
 
 import styles from '../styles/content.module.scss';

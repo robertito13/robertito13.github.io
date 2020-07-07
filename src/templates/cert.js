@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/sidebar-stripped';
 import SEO from '../components/seo';
 
 import styles from '../styles/content.module.scss';
