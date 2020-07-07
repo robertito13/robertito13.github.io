@@ -1,6 +1,6 @@
 ---
 title: "JWT: The right way"
-date: "2020-07-03"
+date: "2020-07-06"
 ---
 
 ## Introducción
