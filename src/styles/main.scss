@@ -55,6 +55,11 @@ pre[class*="language-"] {
   }
 }
 
+code[class*="language-"] {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 pre[class*="language-"].line-numbers {
   padding-left: 2em;
 }
