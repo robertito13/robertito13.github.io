@@ -56,7 +56,7 @@ module.exports = {
     title: 'rvaccaro',
     titleTemplate: '%s · rvaccaro',
     description: 'rvaccaro',
-    url: 'https://robertito13.github.io',
+    url: 'https://rvaccaro.com.ar',
     twitterUsername: 'robertitov13',
   },
 };
