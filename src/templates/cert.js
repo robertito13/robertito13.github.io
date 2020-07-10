@@ -11,6 +11,11 @@ import certStyles from '../styles/cert.module.scss';
 
 const BlogCertTemplate = ({ data, pageContext, location }) => {
   const cert = data.markdownRemark;
+  const validation = cert.frontmatter.cert_url ?
+    <a href={cert.frontmatter.cert_url} alt="Validación Online del Certificado">
+      <FontAwesomeIcon icon={faClipboardCheck} /></a> :
+    null;
+
 
   return (
     <div className="container">
@@ -23,8 +28,7 @@ const BlogCertTemplate = ({ data, pageContext, location }) => {
             {cert.frontmatter.date}&nbsp;
             -&nbsp;
             <a href={cert.frontmatter.issuer_url} alt="Sitio del Emisor">{cert.frontmatter.issuer}</a>&nbsp;
-            <a href={cert.frontmatter.cert_url} alt="Validación Online del Certificado">
-              <FontAwesomeIcon icon={faClipboardCheck} /></a>
+            {validation}
           </p>
           <embed
             type="application/pdf"
