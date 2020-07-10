@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
+import { fontAwesomeInlineStyles } from '../utils';
 import styles from '../styles/link.module.scss';
 
 interface OwnProps {
@@ -13,7 +14,7 @@ class ExternalLink extends React.Component<OwnProps> {
     return (
       <div className={styles.link}>
         <a href={this.props.to}>{this.props.children}</a>
-        <FontAwesomeIcon icon={faExternalLinkAlt} />
+        <FontAwesomeIcon icon={faExternalLinkAlt} style={fontAwesomeInlineStyles} />
       </div>
     );
   }

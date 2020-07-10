@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCertificate } from '@fortawesome/free-solid-svg-icons';
 
+import { fontAwesomeInlineStyles } from '../utils';
 import styles from '../styles/link.module.scss';
 
 interface OwnProps {
@@ -14,7 +15,7 @@ class Certificate extends React.Component<OwnProps> {
     return (
       <div className={styles.link}>
         <Link to={this.props.to}>{this.props.children}</Link>
-        <FontAwesomeIcon icon={faCertificate} />
+        <FontAwesomeIcon icon={faCertificate} style={fontAwesomeInlineStyles} />
       </div>
     );
   }
