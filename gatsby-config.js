@@ -51,6 +51,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `rvaccaro`,
+      },
+    },
   ],
   siteMetadata: {
     title: 'rvaccaro',
