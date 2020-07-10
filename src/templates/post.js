@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
+import { Disqus } from 'gatsby-plugin-disqus';
 
 import Sidebar from '../components/sidebar-stripped';
 import SEO from '../components/seo';
@@ -27,7 +27,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <p>{post.frontmatter.date}</p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <CommentCount config={disqusConfig} placeholder={'...'} />
         <Disqus config={disqusConfig} />
       </article>
     </div>
