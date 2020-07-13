@@ -32,6 +32,12 @@ const Index = () : JSX.Element => {
               title
               link
               tags
+              issuer
+              issuer_url
+              cert {
+                  publicURL
+              }
+              cert_url
             }
             id
           }

@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCertificate } from '@fortawesome/free-solid-svg-icons';
 
 import { fontAwesomeInlineStyles } from '../utils';
 import styles from '../styles/link.module.scss';
@@ -9,15 +10,15 @@ interface OwnProps {
   to: string;
 }
 
-class ExternalLink extends React.Component<OwnProps> {
+class Certificate extends React.Component<OwnProps> {
   render(): JSX.Element {
     return (
       <div className={styles.link}>
-        <a href={this.props.to}>{this.props.children}</a>
-        <FontAwesomeIcon icon={faExternalLinkAlt} style={fontAwesomeInlineStyles} />
+        <Link to={this.props.to}>{this.props.children}</Link>
+        <FontAwesomeIcon icon={faCertificate} style={fontAwesomeInlineStyles} />
       </div>
     );
   }
 }
 
-export default ExternalLink;
+export default Certificate;

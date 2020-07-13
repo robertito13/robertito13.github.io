@@ -16,6 +16,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/certificates`,
+        name: `certificates`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -44,12 +51,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `rvaccaro`,
+      },
+    },
   ],
   siteMetadata: {
     title: 'rvaccaro',
     titleTemplate: '%s · rvaccaro',
     description: 'rvaccaro',
-    url: 'https://robertito13.github.io',
+    url: 'https://rvaccaro.com.ar',
     twitterUsername: 'robertitov13',
   },
 };
