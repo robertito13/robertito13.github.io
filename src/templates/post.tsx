@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { Disqus } from 'gatsby-plugin-disqus';
 
 import Sidebar from '../components/sidebar-stripped';
@@ -7,7 +7,9 @@ import SEO from '../components/seo';
 
 import styles from '../styles/content.module.scss';
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+import { PostQuery } from '../types/queries';
+
+const BlogPostTemplate = ({ data, location }: PageProps<PostQuery>): JSX.Element => {
   const post = data.markdownRemark;
   const meta = data.site.siteMetadata;
 

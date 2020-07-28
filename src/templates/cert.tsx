@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,10 +9,12 @@ import SEO from '../components/seo';
 import styles from '../styles/content.module.scss';
 import certStyles from '../styles/cert.module.scss';
 
-const BlogCertTemplate = ({ data, pageContext, location }) => {
+import { CertQuery } from '../types/queries';
+
+const BlogCertTemplate = ({ data }: PageProps<CertQuery>): JSX.Element => {
   const cert = data.markdownRemark;
   const validation = cert.frontmatter.cert_url ?
-    <a href={cert.frontmatter.cert_url} alt="Validación Online del Certificado">
+    <a href={cert.frontmatter.cert_url} title="Validación Online del Certificado">
       <FontAwesomeIcon icon={faClipboardCheck} /></a> :
     null;
 
@@ -27,7 +29,7 @@ const BlogCertTemplate = ({ data, pageContext, location }) => {
           <p>
             {cert.frontmatter.date}&nbsp;
             -&nbsp;
-            <a href={cert.frontmatter.issuer_url} alt="Sitio del Emisor">{cert.frontmatter.issuer}</a>&nbsp;
+            <a href={cert.frontmatter.issuer_url} title="Sitio del Emisor">{cert.frontmatter.issuer}</a>&nbsp;
             {validation}
           </p>
           <embed

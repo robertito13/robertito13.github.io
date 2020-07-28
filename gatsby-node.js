@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const blogPost = path.resolve(`./src/templates/post.js`);
+  const blogPost = path.resolve(`./src/templates/post.tsx`);
   const posts = result.data.allMarkdownRemark.edges.filter((post) => post.node.fields.source === 'posts');
 
   posts.forEach((post, index) => {
@@ -49,7 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create certificates pages.
-  const certPost = path.resolve(`./src/templates/cert.js`);
+  const certPost = path.resolve(`./src/templates/cert.tsx`);
   const certificates = result.data.allMarkdownRemark.edges.filter((cert) => cert.node.fields.source === 'certificates');
 
   certificates.forEach((cert, index) => {
