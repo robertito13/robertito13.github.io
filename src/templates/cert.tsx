@@ -18,6 +18,11 @@ const BlogCertTemplate = ({ data }: PageProps<CertQuery>): JSX.Element => {
       <FontAwesomeIcon icon={faClipboardCheck} /></a> :
     null;
 
+  const file = cert.frontmatter.cert;
+
+  const fileEmbed = file.internal.mediaType.match(/^image\/.*/gi) ?
+    <img src={file.publicURL} alt="Certificado" className={certStyles.image} /> :
+    <embed type="application/pdf" src={file.publicURL} className={certStyles.embed} />;
 
   return (
     <div className="container">
@@ -32,10 +37,7 @@ const BlogCertTemplate = ({ data }: PageProps<CertQuery>): JSX.Element => {
             <a href={cert.frontmatter.issuer_url} title="Sitio del Emisor">{cert.frontmatter.issuer}</a>&nbsp;
             {validation}
           </p>
-          <embed
-            type="application/pdf"
-            src={cert.frontmatter.cert.publicURL}
-            className={certStyles.main}></embed>
+          { fileEmbed }
         </header>
       </article>
     </div>
@@ -56,6 +58,9 @@ export const pageQuery = graphql`
         issuer_url
         cert {
             publicURL
+            internal {
+              mediaType
+            }
         }
         cert_url
       }
